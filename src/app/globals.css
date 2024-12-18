@@ -5,7 +5,7 @@
 
 html {
   color-scheme: light dark; /* Let the browser know both modes are supported */
-}
+} 
 
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -69,6 +69,10 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 @layer base {

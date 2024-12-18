@@ -75,9 +75,9 @@ export function Hero() {
     ];
 
     return (
-        <BackgroundLines className="grid grid-cols-1 md:grid-cols-[60%,40%] items-center w-screen px-4 py-24 relative">
+        <BackgroundLines className="grid grid-cols-1 md:grid-cols-[60%,40%] items-center px-4 py-24 relative">
             {/* Left Section */}
-            <div className="left-container z-200 text-center md:text-left ms-0 md:ms-40  space-y-6">
+            <div className="left-container text-center md:text-left ms-0 md:ms-40  space-y-6">
                 {/* Role Heading */}
                 <h2 className="">
                     <TypewriterEffectSmooth words={RoleP1} />
