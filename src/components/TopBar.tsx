@@ -60,7 +60,7 @@ function Navbar({ className }: { className?: string }) {
   );
 
   return (
-    <div className={cn("fixed top-0 md:top-10 inset-x-0 max-w-6xl mx-auto z-50", className)}>
+    <div className={cn("fixed top-0 md:top-5 inset-x-0 max-w-6xl mx-auto z-50", className)}>
       {/* Desktop Navigation */}
       <div className="hidden md:block">
         <Menu setActive={setActive}>

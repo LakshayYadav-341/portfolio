@@ -12,6 +12,7 @@ import {
   IconBrandAngular,
   IconBrandDocker,
 } from "@tabler/icons-react";
+import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
 
 export function Skills() {
   const skills = [
@@ -160,10 +161,26 @@ export function Skills() {
     },
   ];
 
+  const Title = [
+    {
+        text: "MY",
+        className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
+    },
+    {
+        text: "TECHNICAL",
+        className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
+    },
+    {
+        text: "SKILLS",
+        className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
+    },
+    
+];
+
   return (
     <div className="flex flex-col items-center justify-center min-h-[35rem] w-full p-4">
-      <h2 className="text-3xl font-bold mb-8 text-center dark:text-white">
-        Technical Skills Showcase
+      <h2 className="text-6xl font-bold mb-8 text-center dark:text-white">
+        <TypewriterEffectSmooth words={Title} />
       </h2>
 
       <div className="w-full max-w-4xl">
