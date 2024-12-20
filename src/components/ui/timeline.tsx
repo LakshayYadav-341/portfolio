@@ -38,7 +38,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         </h2>
       </div>
 
-      <div ref={ref} className="relative w-auto mx-auto pb-20">
+      <div ref={ref} className="relative w-auto mx-auto pb-10">
         {data.map((item, index) => (
           <div
             key={index}
@@ -53,7 +53,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </h3>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-auto">
+            <div className="relative pl-12 mx-auto w-auto">
               <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
                 {item.title}
               </h3>

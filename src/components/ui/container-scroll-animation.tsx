@@ -32,18 +32,17 @@ export const ContainerScroll: React.FC<ContainerScrollProps> = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 0.8], [20, 0]);
+  const rotate = useTransform(scrollYProgress, [0,1], [10, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -10]);
+  const translate = useTransform(scrollYProgress, [-2, 0.5], [0, 0]);
 
   return (
     <div
-      className="relative w-full flex items-center justify-center p-4 overflow-hidden"
+      className="relative w-full h-auto flex items-center justify-center md:px-4 overflow-hidden"
       ref={containerRef}
-      style={{ minHeight: '60rem' }}
     >
       <div
-        className="w-full relative"
+        className="w-full relative md:p-8"
         style={{
           perspective: "1000px",
         }}
@@ -68,7 +67,7 @@ export const Header: React.FC<HeaderProps> = ({ translate, titleComponent }) => 
       style={{
         translateY: translate,
       }}
-      className="max-w-5xl mt-48 mx-auto text-center"
+      className="max-w-5xl mt-24 mx-auto text-center"
     >
       {titleComponent}
     </motion.div>
@@ -85,6 +84,7 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({
   rotate,
   scale,
+  translate,
   children,
 }) => {
   return (
@@ -92,10 +92,12 @@ export const Card: React.FC<CardProps> = ({
       style={{
         rotateX: rotate,
         scale,
+        translateY: translate, 
       }}
-      className="max-w-3xl mx-auto h-auto border-[#6C6C6C] p-2 md:p-6 rounded-[30px] overflow-hidden"
+      className="max-w-3xl mx-auto h-auto border border-neutral-300 dark:border-neutral-700 p-2 md:p-6 rounded-[30px] overflow-hidden shadow-lg
+      bg-white dark:bg-neutral-900 transition-colors duration-300"
     >
-      <div className="h-auto w-auto overflow-hidden rounded-2xl dark:bg-zinc-900 p-4">
+      <div className="h-auto w-auto overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800 md:p-4">
         {children}
       </div>
     </motion.div>

@@ -1,66 +1,129 @@
 "use client";
 import React from "react";
-import { Label } from "./ui/label";
-import { Input } from "./ui/input";
-import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
-export function Contact() {
+export default function Contact() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
   };
+
   return (
-    <div className="max-w-2xl mx-auto w-full rounded-none md:rounded-2xl p-4 md:p-8 bg-white dark:bg-black">
-      <h2 className="font-bold text-8xl text-neutral-800 dark:text-neutral-200">
-        Contact Me
-      </h2>
-
-      <form className="my-8" onSubmit={handleSubmit}>
-        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
-          <LabelInputContainer>
-            <Label htmlFor="fullName">Full name</Label>
-            <Input id="fullName" placeholder="Tyler" type="text" />
-          </LabelInputContainer>
-        </div>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
-        </LabelInputContainer>
-
-        <button
-          className="bg-gradient-to-br relative group/btn from-black dark:from-zinc-900 dark:to-zinc-900 to-neutral-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
-          type="submit"
-        >
-          Send Message &rarr;
-          <BottomGradient />
-        </button>
-
-        <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-
-      </form>
+    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background text-foreground">
+      <BackgroundGradient />
+      <ContactContainer>
+        <ContactHeader title="Contact Me" />
+        <ContactForm onSubmit={handleSubmit} />
+      </ContactContainer>
     </div>
   );
 }
 
-const BottomGradient = () => {
-  return (
-    <>
-      <span className="group-hover/btn:opacity-100 block transition duration-500 opacity-0 absolute h-px w-full -bottom-px inset-x-0 bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-      <span className="group-hover/btn:opacity-100 blur-sm block transition duration-500 opacity-0 absolute h-px w-1/2 mx-auto -bottom-px inset-x-10 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
-    </>
-  );
-};
-
-const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div className={cn("flex flex-col space-y-2 w-full", className)}>
-      {children}
+const BackgroundGradient = () => (
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+    className="absolute inset-0 overflow-hidden pointer-events-none"
+  >
+    <div className="absolute inset-0">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full aspect-square">
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r 
+          from-primary via-accent to-secondary blur-3xl 
+          dark:from-secondary dark:via-accent dark:to-primary opacity-20 animate-pulse" />
+      </div>
     </div>
-  );
-};
+  </motion.div>
+);
+
+const ContactContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="relative w-full max-w-xl mx-auto rounded-lg p-8 bg-card text-card-foreground 
+      backdrop-blur-xl border border-border shadow-md dark:bg-black/30 dark:border-neutral-700"
+  >
+    {children}
+  </motion.div>
+);
+
+const ContactHeader: React.FC<{ title: string }> = ({ title }) => (
+  <div className="relative">
+    <motion.h2
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="text-center text-4xl font-bold bg-clip-text text-transparent 
+        bg-gradient-to-r from-primary to-accent 
+        dark:from-secondary dark:to-primary animate-text"
+    >
+      {title}
+    </motion.h2>
+  </div>
+);
+
+const ContactForm: React.FC<{ onSubmit: (e: React.FormEvent<HTMLFormElement>) => void }> = ({ onSubmit }) => (
+  <motion.form
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    onSubmit={onSubmit}
+    className="mt-8 space-y-6"
+  >
+    <FormField id="firstName" label="First Name" type="text" placeholder="John" />
+    <FormField id="lastName" label="Last Name" type="text" placeholder="Doe" />
+    <FormField id="email" label="Email Address" type="email" placeholder="john@example.com" />
+    <FormField id="message" label="Message" type="textarea" placeholder="How can I help you?" />
+    <SubmitButton />
+  </motion.form>
+);
+
+const FormField: React.FC<{
+  id: string;
+  label: string;
+  type: string;
+  placeholder: string;
+}> = ({ id, label, type, placeholder }) => (
+  <div className="space-y-2">
+    <label
+      htmlFor={id}
+      className="text-sm font-medium text-muted-foreground dark:text-muted-foreground"
+    >
+      {label}
+    </label>
+    {type === "textarea" ? (
+      <textarea
+        id={id}
+        placeholder={placeholder}
+        className="w-full min-h-[100px] p-4 text-base rounded-lg resize-y bg-input text-foreground 
+          placeholder:text-muted-foreground border border-border 
+          dark:bg-black/30 dark:text-white dark:placeholder:text-muted-foreground dark:border-neutral-700 
+          focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary"
+      />
+    ) : (
+      <input
+        id={id}
+        type={type}
+        placeholder={placeholder}
+        className="w-full h-12 px-4 rounded-lg bg-input text-foreground 
+          placeholder:text-muted-foreground border border-border 
+          dark:bg-black/30 dark:text-white dark:placeholder:text-muted-foreground dark:border-neutral-700 
+          focus:outline-none focus:ring-2 focus:ring-primary dark:focus:ring-secondary"
+      />
+    )}
+  </div>
+);
+
+const SubmitButton = () => (
+  <motion.button
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    type="submit"
+    className="w-full h-12 rounded-lg bg-primary text-primary-foreground 
+      hover:bg-accent dark:bg-secondary dark:text-secondary-foreground 
+      dark:hover:bg-primary font-medium shadow-lg"
+  >
+    Send Message →
+  </motion.button>
+);

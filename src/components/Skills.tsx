@@ -1,26 +1,22 @@
 import React from "react";
 import { SkillsDock } from "@/components/ui/floating-dock";
-import {
-  IconBrandReact,
-  IconBrandHtml5,
-  IconBrandCss3,
-  IconBrandJavascript,
-  IconBrandTailwind,
-  IconBrandNodejs,
-  IconBrandAws,
-  IconDatabase,
-  IconBrandAngular,
-  IconBrandDocker,
-} from "@tabler/icons-react";
 import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import Image from "next/image";
+
+
 
 export function Skills() {
   const skills = [
-    // Programming Languages
     {
       name: "C++",
       icon: (
-        <IconDatabase className="h-full w-full text-purple-600 dark:text-purple-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/cpp.svg"
+          alt="C++ logo"
+          className="h-full w-full text-purple-600 dark:text-purple-400"
+        />
       ),
       proficiency: 90,
       description:
@@ -29,7 +25,13 @@ export function Skills() {
     {
       name: "JavaScript",
       icon: (
-        <IconBrandJavascript className="h-full w-full text-yellow-500 dark:text-yellow-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/js.svg"
+          alt="JavaScript logo"
+          className="h-full w-full text-yellow-500 dark:text-yellow-400"
+        />
       ),
       proficiency: 90,
       description:
@@ -38,26 +40,43 @@ export function Skills() {
     {
       name: "Solidity",
       icon: (
-        <IconBrandDocker className="h-full w-full text-gray-600 dark:text-gray-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/solidity.svg"
+          alt="Solidity logo"
+          className="h-full w-full text-gray-600 dark:text-gray-400"
+        />
       ),
       proficiency: 50,
       description:
         "Experience with developing, testing, and deploying Ethereum smart contracts.",
     },
-
-    // Frontend
     {
       name: "HTML",
       icon: (
-        <IconBrandHtml5 className="h-full w-full text-orange-500 dark:text-orange-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/html5.svg"
+          alt="HTML5 logo"
+          className="h-full w-full text-orange-500 dark:text-orange-400"
+        />
       ),
       proficiency: 100,
-      description: "Expert in semantic markup and responsive web design principles.",
+      description:
+        "Expert in semantic markup and responsive web design principles.",
     },
     {
       name: "React.js",
       icon: (
-        <IconBrandReact className="h-full w-full text-blue-500 dark:text-blue-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/react.svg"
+          alt="React.js logo"
+          className="h-full w-full text-blue-500 dark:text-blue-400"
+        />
       ),
       proficiency: 90,
       description:
@@ -66,7 +85,13 @@ export function Skills() {
     {
       name: "Angular",
       icon: (
-        <IconBrandAngular className="h-full w-full text-red-500 dark:text-red-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/angular.svg"
+          alt="Angular logo"
+          className="h-full w-full text-red-500 dark:text-red-400"
+        />
       ),
       proficiency: 80,
       description:
@@ -75,60 +100,72 @@ export function Skills() {
     {
       name: "Next.js",
       icon: (
-        <IconBrandReact className="h-full w-full text-black dark:text-gray-200" />
-      ),
-      proficiency: 90,
-      description: "Full-stack web applications with server-side rendering.",
-    },
-    {
-      name: "SCSS",
-      icon: (
-        <IconBrandCss3 className="h-full w-full text-pink-500 dark:text-pink-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/next.js.svg"
+          alt="Next.js logo"
+          className="h-full w-full text-red-500 dark:text-red-400"
+        />
       ),
       proficiency: 80,
       description:
-        "Efficient styling with modular and reusable SCSS components.",
+        "Experienced in building dynamic and scalable Next.js applications.",
     },
     {
       name: "Tailwind CSS",
       icon: (
-        <IconBrandTailwind className="h-full w-full text-cyan-500 dark:text-cyan-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/tailwind.svg"
+          alt="Tailwind CSS logo"
+          className="h-full w-full text-cyan-500 dark:text-cyan-400"
+        />
       ),
       proficiency: 80,
-      description: "Responsive design, utility-first CSS, and custom component styling.",
+      description:
+        "Responsive design, utility-first CSS, and custom component styling.",
     },
-
-    // Backend
     {
       name: "Node.js",
       icon: (
-        <IconBrandNodejs className="h-full w-full text-green-600 dark:text-green-500" />
+        <Image
+          width={100}
+          height={100}
+          src="/node.svg"
+          alt="Node.js logo"
+          className="h-full w-full text-green-600 dark:text-green-500"
+        />
       ),
       proficiency: 80,
-      description: "Backend development, RESTful API design, and server-side JavaScript.",
+      description:
+        "Backend development, RESTful API design, and server-side JavaScript.",
     },
     {
       name: "Express.js",
       icon: (
-        <IconBrandNodejs className="h-full w-full text-gray-500 dark:text-gray-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/express.svg"
+          alt="Express.js logo"
+          className="h-full w-full text-gray-500 dark:text-gray-400"
+        />
       ),
       proficiency: 80,
       description: "Building RESTful APIs and middleware for web applications.",
     },
     {
-      name: "Smart Contracts",
-      icon: (
-        <IconBrandDocker className="h-full w-full text-gray-600 dark:text-gray-400" />
-      ),
-      proficiency: 50,
-      description: "Development and testing of Ethereum-based smart contracts.",
-    },
-
-    // Databases
-    {
       name: "MySQL",
       icon: (
-        <IconDatabase className="h-full w-full text-blue-600 dark:text-blue-500" />
+        <Image
+          width={100}
+          height={100}
+          src="/mysql.svg"
+          alt="MySQL logo"
+          className="h-full w-full text-blue-600 dark:text-blue-500"
+        />
       ),
       proficiency: 90,
       description: "Designing efficient relational database systems.",
@@ -136,7 +173,13 @@ export function Skills() {
     {
       name: "MongoDB",
       icon: (
-        <IconDatabase className="h-full w-full text-green-500 dark:text-green-400" />
+        <Image
+          width={100}
+          height={100}
+          src="/mongodb.svg"
+          alt="MongoDB logo"
+          className="h-full w-full text-green-500 dark:text-green-400"
+        />
       ),
       proficiency: 90,
       description: "Document-based database with scalable architectures.",
@@ -144,43 +187,48 @@ export function Skills() {
     {
       name: "PostgreSQL",
       icon: (
-        <IconDatabase className="h-full w-full text-blue-800 dark:text-blue-700" />
+        <Image
+          width={100}
+          height={100}
+          src="/postgresql.svg"
+          alt="PostgreSQL logo"
+          className="h-full w-full text-green-500 dark:text-green-400"
+        />
       ),
-      proficiency: 70,
-      description: "Advanced SQL querying and relational database design.",
+      proficiency: 90,
+      description: "Experienced with PostgreSQL.",
     },
-
-    // Cloud
     {
       name: "AWS",
       icon: (
-        <IconBrandAws className="h-full w-full text-orange-600 dark:text-orange-500" />
+        <Image
+          width={100}
+          height={100}
+          src="/aws.svg"
+          alt="AWS logo"
+          className="h-full w-full text-orange-600 dark:text-orange-500"
+        />
       ),
       proficiency: 60,
-      description: "Experience in deploying and managing cloud infrastructure.",
+      description:
+        "Experience in deploying and managing cloud infrastructure on AWS.",
     },
   ];
 
-  const Title = [
-    {
-        text: "MY",
-        className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-    },
-    {
-        text: "TECHNICAL",
-        className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-    },
-    {
-        text: "SKILLS",
-        className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-    },
-    
-];
+
+  const title = [
+    "MY",
+    "TECHNICAL",
+    "SKILLS",
+  ];
 
   return (
     <div className="flex flex-col items-center justify-center min-h-[35rem] w-full p-4">
       <h2 className="text-6xl font-bold mb-8 text-center dark:text-white">
-        <TypewriterEffectSmooth words={Title} />
+        <TypewriterEffectSmooth words={title.map((text) => ({
+          text,
+          className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
+        }))} />
       </h2>
 
       <div className="w-full max-w-4xl">
