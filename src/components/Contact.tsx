@@ -1,6 +1,42 @@
 "use client";
+import { useScroll, useTransform } from "framer-motion";
+import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
+
+export function GoogleGeminiEffectDemo() {
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
+  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
+  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
+  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
+  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
+
+  return (
+    <div
+      className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
+      ref={ref}
+    >
+      <GoogleGeminiEffect
+        title="Contact Me"
+        pathLengths={[
+          pathLengthFirst,
+          pathLengthSecond,
+          pathLengthThird,
+          pathLengthFourth,
+          pathLengthFifth,
+        ]}
+      />
+    </div>
+  );
+}
+
 import React from "react";
 import { motion } from "framer-motion";
+import { WavyBackground } from "./ui/wavy-background";
 
 export default function Contact() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -9,13 +45,18 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background text-foreground">
-      <BackgroundGradient />
-      <ContactContainer>
-        <ContactHeader title="Contact Me" />
-        <ContactForm onSubmit={handleSubmit} />
-      </ContactContainer>
-    </div>
+    <>
+      <GoogleGeminiEffectDemo />
+      <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-background text-foreground">
+        <BackgroundGradient />
+        <WavyBackground>
+          <ContactContainer>
+            {/* <ContactHeader title="Contact Me" /> */}
+            <ContactForm onSubmit={handleSubmit} />
+          </ContactContainer>
+        </WavyBackground>
+      </div>
+    </>
   );
 }
 
@@ -48,20 +89,6 @@ const ContactContainer: React.FC<{ children: React.ReactNode }> = ({ children })
   </motion.div>
 );
 
-const ContactHeader: React.FC<{ title: string }> = ({ title }) => (
-  <div className="relative">
-    <motion.h2
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5 }}
-      className="text-center text-4xl font-bold bg-clip-text text-transparent 
-        bg-gradient-to-r from-primary to-accent 
-        dark:from-secondary dark:to-primary animate-text"
-    >
-      {title}
-    </motion.h2>
-  </div>
-);
 
 const ContactForm: React.FC<{ onSubmit: (e: React.FormEvent<HTMLFormElement>) => void }> = ({ onSubmit }) => (
   <motion.form
