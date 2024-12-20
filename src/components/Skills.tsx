@@ -1,6 +1,6 @@
 import React from "react";
-import { SkillsDock } from "@/components/ui/floating-dock";
-import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
+import { SkillsDock } from "@/components/ui/skillDock";
+import { TypewriterEffectSmooth } from "./ui/heroHeading";
 import Image from "next/image";
 
 

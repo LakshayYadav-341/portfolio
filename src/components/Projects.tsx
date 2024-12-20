@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { PinContainer } from "./ui/3d-pin";
+import { PinContainer } from "./ui/projectPin";
 
 export default function Projects() {
   return (

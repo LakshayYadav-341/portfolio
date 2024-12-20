@@ -1,76 +1,33 @@
 "use client";
 import React from "react";
-import { BackgroundLines } from "@/components/ui/background-lines";
+import { BackgroundLines } from "@/components/ui/heroBackgroundLines";
 import Image from "next/image";
 import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
-import { TypewriterEffectSmooth } from "./ui/typewriter-effect";
-import { TextGenerateEffect } from "./ui/text-generate-effect";
-
-export function TypewriterEffectSmoothDemo(words: { text: string; className?: string }[]) {
-    return (
-        <div className="flex flex-col items-center justify-center h-[40rem]">
-            <p className="text-neutral-600 dark:text-neutral-200 text-xs sm:text-base">
-                The road to freedom starts from here
-            </p>
-            <TypewriterEffectSmooth words={words} />
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-                <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
-                    Join now
-                </button>
-                <button className="w-40 h-10 rounded-xl bg-white text-black border border-black text-sm">
-                    Signup
-                </button>
-            </div>
-        </div>
-    );
-}
+import { TypewriterEffectSmooth } from "./ui/heroHeading";
+import { TextGenerateEffect } from "./ui/heroDesc";
+import { FileDownload } from "./ui/file-download";
 
 export function Hero() {
     const RoleP1 = [
-        {
-            text: "FULL",
-            className:
-                "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-        },
-        {
-            text: "STACK",
-            className:
-                "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-        },
-        {
-            text: "WEB",
-            className:
-                "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-        },
+        { text: "FULL", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
+        { text: "STACK", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
     ];
 
     const RoleP2 = [
-        {
-            text: "DEVELOPER.",
-            className:
-                "text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-        },
+        { text: "WEB", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
+        { text: "DEVELOPER.", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
     ];
 
     const NameP1 = [
-        {
-            text: "LAKSHAY",
-            className:
-                "text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight",
-        },
+        { text: "LAKSHAY", className: "text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight" },
     ];
 
     const NameP2 = [
-        {
-            text: "YADAV",
-            className:
-                "text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight",
-        },
+        { text: "YADAV", className: "text-2xl sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight" },
     ];
 
-    const description = `I'm a full-stack web developer currently in my B.Tech final year and looking for opportunities.`;
-    const descClassName =
-        "text-base sm:text-lg md:text-xl lg:text-2xl text-neutral-700 dark:text-neutral-400 max-w-2xl leading-relaxed";
+    const description = "I'm a full-stack web developer currently in my B.Tech final year and looking for opportunities.";
+    const descClassName = "text-sm sm:text-lg md:text-xl text-neutral-600 dark:text-neutral-200 max-w-2xl";
 
     const socialLinks = [
         { href: "https://www.linkedin.com/in/yourprofile", icon: <FaLinkedin /> },
@@ -80,54 +37,51 @@ export function Hero() {
     ];
 
     return (
-        <BackgroundLines className="h-screen grid grid-cols-1 md:grid-cols-[60%,40%] items-center px-4 py-24 relative">
+        <BackgroundLines className="h-screen flex flex-col md:flex-row items-center py-24 relative">
             {/* Left Section */}
-            <div className="z-5 left-container text-center md:text-left ms-0 md:ms-40 mt-10">
-                {/* Role Heading */}
-                <h2>
-                    <TypewriterEffectSmooth words={RoleP1} />
-                    <TypewriterEffectSmooth words={RoleP2} />
+            <div className="w-full md:w-1/2 text-center md:text-left px-4 lg:ps-36 md:ps-12">
+                <h2 className="md:flex-col md:justify-start md:gap-0 sm:flex-nowrap flex justify-center flex-wrap gap-2">
+                    <div className="">
+                        <TypewriterEffectSmooth words={RoleP1} />
+                    </div>
+                    <div className="">
+                        <TypewriterEffectSmooth words={RoleP2} />
+                    </div>
                 </h2>
-                {/* Name */}
-                <h1>
-                    <TypewriterEffectSmooth words={NameP1} />
-                    <TypewriterEffectSmooth words={NameP2} />
-                </h1>
 
-                {/* About Paragraph */}
-                <div>
+                <h1 className="md:flex-col md:justify-start md:gap-0 sm:flex-nowrap flex justify-center flex-wrap gap-2 mt-12">
+                    <div className="whitespace-nowrap">
+                        <TypewriterEffectSmooth words={NameP1} />
+                    </div>
+                    <div className="whitespace-nowrap">
+                        <TypewriterEffectSmooth words={NameP2} />
+                    </div>
+                </h1>
+                <div className="flex justify-center">
                     <TextGenerateEffect words={description} className={descClassName} />
                 </div>
             </div>
 
             {/* Right Section */}
-            <div className="right-container flex flex-col mx-20 items-center relative">
-                <Image
-                    src="/ai-profile-image.png"
-                    alt="Lakshay Yadav"
-                    layout="responsive" // Ensures full responsiveness
-                    width={700} // Default width
-                    height={700} // Default height
-                    className="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded-full shadow-2xl transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-[0_0_40px_5px_rgba(168,85,247,0.5)]"
-                />
+            <div className="w-full md:w-1/2 md:h-screen flex flex-col items-center lg:p-20 md:py-12 justify-center relative">
+                <div className="relative w-full md:h-screen flex items-center justify-center">
+                    <Image
+                        src="/ai-profile-image.png"
+                        alt="Lakshay Yadav"
+                        width={500}
+                        height={500}
+                        className="transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-[0_0_40px_5px_rgba(168,85,247,0.5)] w-full h-full md:w-auto object-cover"
+                    />
+                    <a
+                        href="/path-to-your-cv.pdf"
+                        download
+                        className="absolute bottom-2 left-2 transform inline-flex items-center justify-center px-4 py-2 text-sm md:text-base text-white bg-purple-600 hover:bg-purple-700 rounded-full font-semibold shadow-lg transition duration-300"
+                    >
+                        <FileDownload/>
+                    </a>
+                </div>
 
-                <a
-                    href="/path-to-your-cv.pdf"
-                    download
-                    className="mt-6 inline-flex items-center justify-center px-6 py-3 text-white bg-purple-600 hover:bg-purple-700 rounded-full font-semibold shadow-lg transition duration-300"
-                >
-                    <span className="mr-2">Download CV</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                            fillRule="evenodd"
-                            d="M3 10a1 1 0 011-1h3V3a1 1 0 112 0v6h3a1 1 0 110 2H9v6a1 1 0 11-2 0v-6H4a1 1 0 01-1-1zm14 7a1 1 0 100-2H3a1 1 0 100 2h14z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                </a>
-
-                {/* Social Media Icons */}
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
+                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
                     {socialLinks.map((social, index) => (
                         <a
                             key={index}
@@ -141,6 +95,7 @@ export function Hero() {
                     ))}
                 </div>
             </div>
+
         </BackgroundLines>
     );
 }
