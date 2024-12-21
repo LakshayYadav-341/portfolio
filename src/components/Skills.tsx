@@ -176,7 +176,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
-          src="/mongodb.svg"
+          src="/mongoDB.svg"
           alt="MongoDB logo"
           className="h-full w-full text-green-500 dark:text-green-400"
         />
