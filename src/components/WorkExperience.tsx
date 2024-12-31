@@ -1,8 +1,23 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { PinContainer } from "./ui/projectPin";
 
 export function WorkExperience() {
+  const [isMediumScreen, setIsMediumScreen] = useState(false);
+  useEffect(() => {
+    const updateScreenSize = () => {
+      setIsMediumScreen(window.innerWidth >= 768);
+    };
+
+    updateScreenSize();
+
+    window.addEventListener("resize", updateScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", updateScreenSize);
+    };
+  }, []);
   const data = [
     {
       title: "Nov 2024 to Present",
@@ -82,14 +97,16 @@ export function WorkExperience() {
                   "Utilized Angular and Node.js to implement new features, which enhanced website performance and ensured efficient, scalable codebases, leading to faster load times and improved user experience.",
                   "Participated in code reviews and debugging sessions, ensuring high-quality and maintainable code, which improved team collaboration and reduced bugs in production.",
                   "Integrated multiple databases like MySQL, MongoDB, and PostgreSQL, which supported accurate and reliable data pipelines, enhancing data processing efficiency.",
-                ].map((point, index) => (
-                  <li
-                    key={index}
-                    className={`text-gray-800 lg:text-lg md:text-base text-sm dark:text-gray-200 ${index===2? "hidden md:block":""}`}
-                  >
-                    {point}
-                  </li>
-                ))}
+                ].map((point, index) =>
+                  index === 2 && !isMediumScreen ? null : (
+                    <li
+                      key={index}
+                      className={`text-gray-800 lg:text-lg md:text-base text-sm dark:text-gray-200`}
+                    >
+                      {point}
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           </div>
