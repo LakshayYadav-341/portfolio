@@ -34,6 +34,8 @@ export function Hero() {
         { href: "https://github.com/LakshayYadav-341", icon: <FaGithub /> },
         { href: "https://www.instagram.com/_lakshay__yadav_/", icon: <FaInstagram /> },
     ];
+    const fileId = "1zulasSuhhTqCAacgnS0SMXnKEPOfHbIz"
+    const CVURL = `https://drive.google.com/uc?export=download&id=${fileId}`
 
     return (
         <BackgroundLines className="h-screen flex flex-col md:flex-row items-center py-24 relative">
@@ -72,7 +74,7 @@ export function Hero() {
                         className="transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-[0_0_40px_5px_rgba(168,85,247,0.5)] w-full h-full md:w-auto object-cover"
                     />
                     <a
-                        href="/path-to-your-cv.pdf"
+                        href={CVURL}
                         download
                         className="absolute bottom-2 left-2 transform inline-flex items-center justify-center px-4 py-2 text-sm md:text-base text-white bg-purple-600 hover:bg-purple-700 rounded-full font-semibold shadow-lg transition duration-300"
                     >
