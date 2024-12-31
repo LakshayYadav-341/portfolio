@@ -2,7 +2,7 @@
 import React from "react";
 import { BackgroundLines } from "@/components/ui/heroBackgroundLines";
 import Image from "next/image";
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 import { TypewriterEffectSmooth } from "./ui/heroHeading";
 import { TextGenerateEffect } from "./ui/heroDesc";
 import { FileDownload } from "./ui/file-download";
@@ -30,10 +30,9 @@ export function Hero() {
     const descClassName = "text-sm sm:text-lg md:text-xl text-neutral-600 dark:text-neutral-200 max-w-2xl";
 
     const socialLinks = [
-        { href: "https://www.linkedin.com/in/yourprofile", icon: <FaLinkedin /> },
-        { href: "https://github.com/yourprofile", icon: <FaGithub /> },
-        { href: "https://twitter.com/yourprofile", icon: <FaTwitter /> },
-        { href: "https://instagram.com/yourprofile", icon: <FaInstagram /> },
+        { href: "https://www.linkedin.com/in/mlakshayyadav/", icon: <FaLinkedin /> },
+        { href: "https://github.com/LakshayYadav-341", icon: <FaGithub /> },
+        { href: "https://www.instagram.com/_lakshay__yadav_/", icon: <FaInstagram /> },
     ];
 
     return (
@@ -66,7 +65,7 @@ export function Hero() {
             <div className="w-full md:w-1/2 md:h-screen flex flex-col items-center lg:p-20 md:py-12 justify-center relative">
                 <div className="relative w-full md:h-screen flex items-center justify-center">
                     <Image
-                        src="/ai-profile-image.png"
+                        src="/profile.png"
                         alt="Lakshay Yadav"
                         width={500}
                         height={500}
