@@ -9,10 +9,10 @@ export function WorkExperience() {
       content: (
         <PinContainer key="1" title="Building S.R. Sports Academy Website" href="https://www.srsportsacademy.in/">
           <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-            <p className="text-4xl mb-4 font-semibold text-primary dark:text-primary-foreground">
-              Building S.R. Sports Academy Website
+            <p className="lg:text-4xl md:text-3xl text-2xl mb-4 font-semibold text-primary dark:text-primary-foreground">
+              Building S.R. Sports Academy Website (FreeLance)
             </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            <p className="lg:text-lg md:text-base text-sm text-gray-700 dark:text-gray-300 mb-6">
               Developing a website for S.R. Sports Academy, showcasing academy activities, improving data accessibility, and enhancing user engagement.
             </p>
             <div className="space-y-4">
@@ -33,7 +33,7 @@ export function WorkExperience() {
                     />
                   </svg>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 lg:text-lg md:text-base text-sm">
                   Collaborating with the cross-platform app development team to implement admin privileges and functions using Node.js, ensuring seamless integration with the existing system, which reduced admin task completion time by 30%.
                 </p>
               </div>
@@ -54,7 +54,7 @@ export function WorkExperience() {
                     />
                   </svg>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-gray-300 lg:text-lg md:text-base text-sm">
                   Working closely with the client to gather requirements, design scalable architectures, and deliver web applications, ensuring an optimal user experience that increased client satisfaction.
                 </p>
               </div>
@@ -68,11 +68,11 @@ export function WorkExperience() {
       content: (
         <PinContainer key="2" title="WORKED AS MEAN STACK INTERN" href="https://drive.google.com/file/d/1Zs-UzSO67iixpcGyVK_b5SUkPd6yWs-E/view?usp=sharing">
           <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-            <p className="text-4xl font-semibold mb-6 text-primary dark:text-primary-foreground">
+            <p className="lg:text-4xl md:text-3xl text-2xl font-semibold mb-6 text-primary dark:text-primary-foreground">
               WORKED AS MEAN STACK INTERN
             </p>
             <div className="space-y-4">
-              <p className="text-lg text-muted-foreground dark:text-muted-foreground">
+              <p className="lg:text-lg md:text-base text-sm text-muted-foreground dark:text-muted-foreground">
                 <strong>Company:</strong> GEMSYN <br />
                 <strong>Location:</strong> Remote | May 2023 - Jul 2023
               </p>
@@ -85,7 +85,7 @@ export function WorkExperience() {
                 ].map((point, index) => (
                   <li
                     key={index}
-                    className={`text-gray-800 dark:text-gray-200 ${index === 2 ? "hidden md:block" : ""}`}
+                    className={`text-gray-800 lg:text-lg md:text-base text-sm dark:text-gray-200 ${index===2? "hidden md:block":""}`}
                   >
                     {point}
                   </li>
