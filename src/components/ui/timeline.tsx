@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 interface TimelineEntry {
   title: string;
   content: React.ReactNode;
+  links?: React.ReactNode;
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
@@ -42,9 +43,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-8 md:pt-20 md:gap-10"
+            className="grid grid-cols-12 pt-8 md:pt-20"
           >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-20 md:top-80 self-start max-w-xs lg:max-w-sm md:w-1/4">
+            <div className="col-span-3 sticky flex flex-col md:flex-row z-40 items-center top-20 md:top-80 self-start max-w-xs lg:max-w-sm md:w-1/4">
               <div className="h-10 absolute left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
@@ -53,11 +54,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </h3>
             </div>
 
-            <div className="relative pl-12 mx-auto w-full">
+            <div className="col-span-7 relative pl-12 mx-auto w-full">
               <h3 className="md:hidden block text-2xl mb-4 pl-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
                 {item.title}
               </h3>
               {item.content}
+            </div>
+            <div className="col-span-2 flex items-center" style={{ minWidth: "200px" }}>
+              {item.links}
             </div>
           </div>
         ))}

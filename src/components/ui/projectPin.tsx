@@ -31,7 +31,7 @@ export const PinContainer = ({
   return (
     <div
       className={cn(
-        "relative group/pin z-5 cursor-pointer h-[36rem] w-auto",
+        "relative group/pin z-5 cursor-pointer h-[36rem] max-w-[43rem]",
         containerClassName
       )}
       onMouseEnter={onMouseEnter}
@@ -49,7 +49,7 @@ export const PinContainer = ({
             style={{
               transform: transform,
             }}
-            className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl shadow-[0_8px_16px_rgb(0_0_0/0.4)] dark:bg-black bg-white dark:border-white/[0.1] border-gray-300 group-hover/pin:dark:border-white/[0.2] group-hover/pin:border-gray-400 transition duration-1000 overflow-hidden w-full max-w-2xl"
+            className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl border dark:bg-black bg-white dark:border-white/[0.1] border-gray-300 group-hover/pin:dark:border-white/[0.2] group-hover/pin:border-gray-400 transition duration-1000 overflow-hidden w-full max-w-2xl"
           >
             <div className={cn("relative z-5 w-full", className)}>{children}</div>
           </div>
