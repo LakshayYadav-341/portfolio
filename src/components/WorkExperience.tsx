@@ -27,6 +27,7 @@ export function WorkExperience() {
           key="1"
           title="Building S.R. Sports Academy Website"
           href="https://www.srsportsacademy.in/"
+          height="h-[36rem]"
         >
           <div className="p-6 rounded-lg">
             <h3 className="lg:text-4xl md:text-3xl text-2xl font-semibold text-primary dark:text-primary-foreground mb-4">
@@ -89,6 +90,7 @@ export function WorkExperience() {
           key="2"
           title="Worked as MEAN Stack Intern"
           href="https://drive.google.com/file/d/1Zs-UzSO67iixpcGyVK_b5SUkPd6yWs-E/view?usp=sharing"
+          height="h-[36rem]"
         >
           <div className="p-6 rounded-lg">
             <h3 className="lg:text-4xl md:text-3xl text-2xl font-semibold mb-6 text-primary dark:text-primary-foreground">
@@ -119,7 +121,7 @@ export function WorkExperience() {
   ];
 
   return (
-    <div className="w-full px-0 md:px-40">
+    <div className="w-full px-0 md:px-10 lg:px-32">
       <Timeline data={experienceData} />
     </div>
   );
