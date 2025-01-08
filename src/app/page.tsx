@@ -1,3 +1,4 @@
+import { Certifications } from "@/components/Certification";
 import Contact from "@/components/Contact"; 
 import { Hero } from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -13,6 +14,7 @@ export default function Home() {
     <Skills/>
     <WorkExperience/>
     <Projects/>
+    <Certifications/>
     <Contact/>
     </>
   );

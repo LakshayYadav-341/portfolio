@@ -51,7 +51,7 @@ export const PinContainer = ({
             style={{
               transform: transform,
             }}
-            className="absolute left-1/2 p-4 top-1/2 flex justify-start items-start rounded-2xl border dark:bg-black bg-white dark:border-white/[0.1] border-gray-300 group-hover/pin:dark:border-white/[0.2] group-hover/pin:border-gray-400 transition duration-1000 overflow-hidden w-full max-w-2xl"
+            className="absolute left-1/2 top-1/2 flex justify-start items-start rounded-2xl border dark:bg-black bg-white dark:border-white/[0.1] border-gray-300 group-hover/pin:dark:border-white/[0.2] group-hover/pin:border-gray-400 transition duration-1000 overflow-hidden w-full max-w-2xl"
           >
             <div className={cn("relative z-5 w-full", className)}>{children}</div>
           </div>

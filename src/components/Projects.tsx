@@ -13,48 +13,56 @@ const projects = [
     href: "https://mascot-lilac.vercel.app/",
     github: "https://github.com/notRyuk/pslv-react-jsx",
     description: "Mascot is a web platform that connects students with alumni for career guidance and job opportunities. Alumni can post job listings, while students can view opportunities and engage in real-time chat with alumni for mentorship and advice. Built in MERN Stack.",
-    image: "/ai-profile-image.png",
+    image: "/mascot.png",
     tags: ["React", "Node.js", "MongoDB", "Express"],
   },
   {
-    title: "Mascot",
-    href: "https://github.com/notRyuk/pslv-react-jsx",
-    github: "https://github.com/notRyuk/pslv-react-jsx",
-    description: "Mascot is a web platform that connects students with alumni for career guidance and job opportunities. Alumni can post job listings, while students can view opportunities and engage in real-time chat with alumni for mentorship and advice. Built in MERN Stack.",
-    image: "/ai-profile-image.png",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
+    title: "S R Sports",
+    href: "www.srsportsacademy.in",
+    github: "#",
+    description: "Ongoing Freelancing project for S R sports academy. The website is built using Next.js and Tailwind CSS. The website is still under development.",
+    image: "/srsports.png",
+    tags: ["Next.js", "Tailwind CSS", "MongoDB", "Freelancing"],
   },
   {
-    title: "Mascot",
-    href: "https://github.com/notRyuk/pslv-react-jsx",
-    github: "https://github.com/notRyuk/pslv-react-jsx",
-    description: "Mascot is a web platform that connects students with alumni for career guidance and job opportunities. Alumni can post job listings, while students can view opportunities and engage in real-time chat with alumni for mentorship and advice. Built in MERN Stack.",
-    image: "/ai-profile-image.png",
-    tags: ["Node.js", "MongoDB", "Express"],
+    title: "PortFolio",
+    href: "https://lakshayportfolio-ten.vercel.app/",
+    github: "https://github.com/LakshayYadav-341/portfolio",
+    description: "A beautiful frontend focused portfolio website built using Next.js and Tailwind CSS. The website is hosted on Vercel.",
+    image: "/portfolio.png",
+    tags: ["Next.js", "Tailwind CSS", "Vercel"],
   },
   {
-    title: "Mascot",
-    href: "https://github.com/notRyuk/pslv-react-jsx",
-    github: "https://github.com/notRyuk/pslv-react-jsx",
-    description: "Mascot is a web platform that connects students with alumni for career guidance and job opportunities. Alumni can post job listings, while students can view opportunities and engage in real-time chat with alumni for mentorship and advice. Built in MERN Stack.",
-    image: "/ai-profile-image.png",
-    tags: ["Node.js", "MongoDB", "Express"],
+    title: "CPPSnippets",
+    href: "https://marketplace.visualstudio.com/items?itemName=LakshayYadav.sidCppSnippets",
+    github: "https://github.com/LakshayYadav-341/CppSnippets",
+    description: "A Visual Studio Code extension that provides a collection of C++ code snippets for faster coding. The extension is published on the Visual Studio Code Marketplace.",
+    image: "/cpp.png",
+    tags: ["Visual Studio Code", "C++", "Extension"],
   },
   {
-    title: "Mascot",
-    href: "https://github.com/notRyuk/pslv-react-jsx",
-    github: "https://github.com/notRyuk/pslv-react-jsx",
-    description: "Mascot is a web platform that connects students with alumni for career guidance and job opportunities. Alumni can post job listings, while students can view opportunities and engage in real-time chat with alumni for mentorship and advice. Built in MERN Stack.",
-    image: "/ai-profile-image.png",
-    tags: ["Node.js", "Express"],
+    title: "Make Easy",
+    href: "https://make-easy-gamma.vercel.app/",
+    github: "https://github.com/LakshayYadav-341/Make-Easy.git",
+    description: "A simple react based frontend web application; design inspired from Scrimba. The app is built using React and bootstrap.",
+    image: "/makeeasy.png",
+    tags: ["React", "Bootstrap"],
   },
   {
-    title: "Mascot",
-    href: "https://github.com/notRyuk/pslv-react-jsx",
-    github: "https://github.com/notRyuk/pslv-react-jsx",
-    description: "Mascot is a web platform that connects students with alumni for career guidance and job opportunities. Alumni can post job listings, while students can view opportunities and engage in real-time chat with alumni for mentorship and advice. Built in MERN Stack.",
-    image: "/ai-profile-image.png",
-    tags: ["Node.js", "Express"],
+    title: "Weather App",
+    href: "https://weather-app-six-pi-35.vercel.app/",
+    github: "https://github.com/LakshayYadav-341/Weather-App",
+    description: "A simple weather app that fetches weather data using the OpenWeatherMap API. The app is built using Angular and SCSS.",
+    image: "/weather.png",
+    tags: ["Angular", "SCSS", "OpenWeatherMap API"],
+  },
+  {
+    title: "Robotic Arm Configuration",
+    href: "https://robotic-arm-configurator.vercel.app/",
+    github: "https://github.com/LakshayYadav-341/robotic-arm-configurator",
+    description: "A simple web application for understanding basics of Three.js.",
+    image: "/robot.png",
+    tags: ["React", "Three.js"],
   },
 ];
 const allTags = Array.from(
@@ -167,12 +175,12 @@ export default function Projects() {
             <div key={index}>
               <PinContainer title={project.title} href={project.href} height="h-[30rem]">
                 <div className="flex flex-col p-4 tracking-tight w-full h-[25rem] overflow-hidden bg-white dark:bg-gray-800/50 rounded-lg">
-                  <div className="relative w-full h-40 mb-4">
+                  <div className="relative w-full h-44 mb-4 overflow-hidden">
                     <Image
                       src={project.image}
                       alt={`${project.title} screenshot`}
                       fill
-                      className="object-cover rounded-lg"
+                      className="object-cover rounded-lg scale-110"
                     />
                   </div>
 
