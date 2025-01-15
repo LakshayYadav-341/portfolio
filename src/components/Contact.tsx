@@ -1,41 +1,8 @@
 "use client";
-import { useScroll, useTransform } from "framer-motion";
 import { motion } from "framer-motion";
-import { GoogleGeminiEffect } from "./ui/google-gemini-effect";
 import { WavyBackground } from "./ui/wavy-background";
 import React from "react";
 
-export function GoogleGeminiEffectDemo() {
-  const ref = React.useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
-  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
-  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
-  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
-  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
-
-  return (
-    <div
-      className="h-[400vh] bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip transition-colors duration-300"
-      ref={ref}
-    >
-      <GoogleGeminiEffect
-        title="Contact Me"
-        pathLengths={[
-          pathLengthFirst,
-          pathLengthSecond,
-          pathLengthThird,
-          pathLengthFourth,
-          pathLengthFifth,
-        ]}
-      />
-    </div>
-  );
-}
 
 export default function Contact() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -45,7 +12,6 @@ export default function Contact() {
 
   return (
     <>
-      <GoogleGeminiEffectDemo />
       <div className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-300">
         <BackgroundGradient />
         <WavyBackground className="transition-colors duration-300">

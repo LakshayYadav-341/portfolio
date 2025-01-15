@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import { BackgroundLines } from "@/components/ui/heroBackgroundLines";
 import Image from "next/image";
@@ -7,7 +6,7 @@ import { TypewriterEffectSmooth } from "./ui/heroHeading";
 import { TextGenerateEffect } from "./ui/heroDesc";
 import { FileDownload } from "./ui/file-download";
 
-export function Hero() {
+export default function Hero() {
     const RoleP1 = [
         { text: "FULL", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
         { text: "STACK", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
@@ -69,6 +68,7 @@ export function Hero() {
                     <Image
                         src="/profile.png"
                         alt="Lakshay Yadav"
+                        loading="lazy"
                         width={500}
                         height={500}
                         className="transition-all duration-500 ease-in-out transform hover:scale-105 hover:shadow-[0_0_40px_5px_rgba(168,85,247,0.5)] w-full h-full md:w-auto object-cover"

@@ -178,6 +178,7 @@ export default function Projects() {
                   <div className="relative w-full h-44 mb-4 overflow-hidden">
                     <Image
                       src={project.image}
+                      loading="lazy"
                       alt={`${project.title} screenshot`}
                       fill
                       className="object-cover rounded-lg scale-110"

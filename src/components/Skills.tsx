@@ -5,7 +5,7 @@ import Image from "next/image";
 
 
 
-export function Skills() {
+export default function Skills() {
   const skills = [
     {
       name: "C++",
@@ -13,6 +13,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/cpp.svg"
           alt="C++ logo"
           className="h-full w-full text-purple-600 dark:text-purple-400"
@@ -28,6 +29,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/js.svg"
           alt="JavaScript logo"
           className="h-full w-full text-yellow-500 dark:text-yellow-400"
@@ -43,6 +45,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/solidity.svg"
           alt="Solidity logo"
           className="h-full w-full text-gray-600 dark:text-gray-400"
@@ -58,6 +61,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/html5.svg"
           alt="HTML5 logo"
           className="h-full w-full text-orange-500 dark:text-orange-400"
@@ -73,6 +77,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/react.svg"
           alt="React.js logo"
           className="h-full w-full text-blue-500 dark:text-blue-400"
@@ -88,6 +93,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/angular.svg"
           alt="Angular logo"
           className="h-full w-full text-red-500 dark:text-red-400"
@@ -103,6 +109,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/next.js.svg"
           alt="Next.js logo"
           className="h-full w-full text-red-500 dark:text-red-400"
@@ -118,6 +125,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/tailwind.svg"
           alt="Tailwind CSS logo"
           className="h-full w-full text-cyan-500 dark:text-cyan-400"
@@ -133,6 +141,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/node.svg"
           alt="Node.js logo"
           className="h-full w-full text-green-600 dark:text-green-500"
@@ -148,6 +157,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/express.svg"
           alt="Express.js logo"
           className="h-full w-full text-gray-500 dark:text-gray-400"
@@ -162,6 +172,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/mysql.svg"
           alt="MySQL logo"
           className="h-full w-full text-blue-600 dark:text-blue-500"
@@ -176,6 +187,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/mongoDB.svg"
           alt="MongoDB logo"
           className="h-full w-full text-green-500 dark:text-green-400"
@@ -190,6 +202,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/postgresql.svg"
           alt="PostgreSQL logo"
           className="h-full w-full text-green-500 dark:text-green-400"
@@ -204,6 +217,7 @@ export function Skills() {
         <Image
           width={100}
           height={100}
+          loading="lazy"
           src="/aws.svg"
           alt="AWS logo"
           className="h-full w-full text-orange-600 dark:text-orange-500"

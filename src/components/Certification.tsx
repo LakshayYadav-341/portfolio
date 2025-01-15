@@ -76,9 +76,9 @@ export function Certifications() {
                                         className="relative h-64 bg-gradient-to-b from-neutral-100 to-white dark:from-neutral-800 dark:to-neutral-900 p-8"
                                     >
                                         <Image
-                                            priority
                                             width={500}
                                             height={300}
+                                            loading="lazy"
                                             src={active.src}
                                             alt={active.title}
                                             className="w-full h-full object-contain"
@@ -174,6 +174,7 @@ export function Certifications() {
                                     <Image
                                         width={100}
                                         height={100}
+                                        loading="lazy"
                                         src={cert.src}
                                         alt={cert.title}
                                         className="h-16 w-16 object-contain"

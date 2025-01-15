@@ -1,21 +1,27 @@
-import { Certifications } from "@/components/Certification";
-import Contact from "@/components/Contact"; 
-import { Hero } from "@/components/Hero";
-import Projects from "@/components/Projects";
-import { Skills } from "@/components/Skills";
-import TopBar from "@/components/TopBar";
-import { WorkExperience } from "@/components/WorkExperience";
+"use client"
+import dynamic from 'next/dynamic';
+
+// Lazy load components
+const TopBar = dynamic(() => import('@/components/TopBar'));
+const Hero = dynamic(() => import('@/components/Hero'));
+const Skills = dynamic(() => import('@/components/Skills'));
+const WorkExperience = dynamic(() => import('@/components/WorkExperience'));
+const Projects = dynamic(() => import('@/components/Projects'));
+const Certifications = dynamic(() => import('@/components/Certification'));
+const Contact = dynamic(() => import('@/components/Contact'), {
+  loading: () => <p>Loading...</p>, // Fallback for the Contact component
+});
 
 export default function Home() {
   return (
     <>
-    <TopBar/>
-    <Hero/>
-    <Skills/>
-    <WorkExperience/>
-    <Projects/>
-    <Certifications/>
-    <Contact/>
+      <TopBar />
+      <Hero />
+      <Skills />
+      <WorkExperience />
+      <Projects />
+      <Certifications />
+      <Contact />
     </>
   );
 }

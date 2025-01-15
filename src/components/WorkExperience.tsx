@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { PinContainer } from "./ui/projectPin";
 
-export function WorkExperience() {
+export default function WorkExperience() {
   const [isMediumScreen, setIsMediumScreen] = useState(false);
 
   useEffect(() => {
