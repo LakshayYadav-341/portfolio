@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
+import { Menu} from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { Menu as MenuIcon, X as CloseIcon } from "lucide-react";
 import { FaLightbulb, FaCloudMoon } from "react-icons/fa";
@@ -16,25 +16,27 @@ export default function TopBar() {
 }
 
 function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
   const { theme, setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (!mounted) return null;
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
-    setActive(null);
   };
 
   const ThemeToggleButton = () => (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       aria-label="Toggle theme"
-      className="md:px-4 py-2 rounded-lg font-semibold transition-all duration-300"
+      className="md:px-4 py-2 md:ms-56 rounded-lg font-semibold transition-all duration-300"
     >
       {theme === "dark" ? (
         <div className="flex items-center space-x-2">
@@ -54,6 +56,7 @@ function Navbar({ className }: { className?: string }) {
     <button
       aria-label="Contact Me"
       className="relative group p-[3px] hidden md:block"
+      onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg transition duration-300 group-hover:from-purple-500 group-hover:to-indigo-500" />
       <div className="px-8 py-2 bg-black rounded-[6px] relative transition duration-300 group-hover:bg-transparent">
@@ -66,36 +69,11 @@ function Navbar({ className }: { className?: string }) {
     <div className={cn("fixed bg-transparent top-0 inset-x-0 max-w-6xl z-50", className)}>
       {/* Desktop Navigation */}
       <div className="hidden md:flex justify-between items-center px-4 py-2 bg-transparent w-screen shadow-lg">
-        <Menu setActive={setActive}>
+        <Menu setActive={() => {}}>
           <div className="flex items-center space-x-6">
-            <h3 className="text-2xl mr-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4ed2be] to-[#2D9CDB] dark:from-[#1F8A70] dark:to-[#1F6D8B] animate-pulse">
+            <button onClick={scrollToTop} className="text-2xl mr-4 font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#4ed2be] to-[#2D9CDB] dark:from-[#1F8A70] dark:to-[#1F6D8B] animate-pulse">
               Lakshay Yadav
-            </h3>
-
-            <MenuItem setActive={setActive} active={active} item="Services">
-              <div className="flex flex-col space-y-2 text-sm">
-                <HoveredLink href="/web-dev">Web Development</HoveredLink>
-                <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-                <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-                <HoveredLink href="/branding">Branding</HoveredLink>
-              </div>
-            </MenuItem>
-            <MenuItem setActive={setActive} active={active} item="Products">
-              <div className="grid grid-cols-2 gap-6 text-sm">
-                <ProductItem
-                  title="Algochurn"
-                  href="https://algochurn.com"
-                  src="https://assets.aceternity.com/demos/algochurn.webp"
-                  description="Prepare for tech interviews like never before."
-                />
-                <ProductItem
-                  title="Tailwind Master Kit"
-                  href="https://tailwindmasterkit.com"
-                  src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-                  description="Production-ready Tailwind CSS components for your next project."
-                />
-              </div>
-            </MenuItem>
+            </button>
           </div>
 
           <div className="flex items-center space-x-10">
@@ -126,46 +104,6 @@ function Navbar({ className }: { className?: string }) {
               <div className="flex justify-between items-center">
                 <ThemeToggleButton />
                 <ContactButton />
-              </div>
-
-              <div className="space-y-4">
-                <div
-                  onClick={() => setActive(active === "Services" ? null : "Services")}
-                  className="text-lg font-semibold cursor-pointer"
-                >
-                  Services {active === "Services" ? "▼" : "▶"}
-                  {active === "Services" && (
-                    <div className="mt-2 space-y-2 pl-4">
-                      <HoveredLink href="/web-dev">Web Development</HoveredLink>
-                      <HoveredLink href="/interface-design">Interface Design</HoveredLink>
-                      <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-                      <HoveredLink href="/branding">Branding</HoveredLink>
-                    </div>
-                  )}
-                </div>
-
-                <div
-                  onClick={() => setActive(active === "Products" ? null : "Products")}
-                  className="text-lg font-semibold cursor-pointer"
-                >
-                  Products {active === "Products" ? "▼" : "▶"}
-                  {active === "Products" && (
-                    <div className="mt-2 space-y-2 pl-4">
-                      <ProductItem
-                        title="Algochurn"
-                        href="https://algochurn.com"
-                        src="https://assets.aceternity.com/demos/algochurn.webp"
-                        description="Prepare for tech interviews like never before."
-                      />
-                      <ProductItem
-                        title="Tailwind Master Kit"
-                        href="https://tailwindmasterkit.com"
-                        src="https://assets.aceternity.com/demos/tailwindmasterkit.webp"
-                        description="Production-ready Tailwind CSS components for your next project."
-                      />
-                    </div>
-                  )}
-                </div>
               </div>
             </div>
           </div>

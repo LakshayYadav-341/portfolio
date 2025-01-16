@@ -4,21 +4,22 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export const PinContainer = ({
-  children,
-  title,
-  href,
-  className,
-  containerClassName,
-  height,
-}: {
-  children: React.ReactNode;
-  title?: string;
-  href?: string;
-  className?: string;
-  containerClassName?: string;
-  height?: string;
-}) => {
+export default function PinContainer(
+  {
+    children,
+    title,
+    href,
+    className,
+    containerClassName,
+    height,
+  }: {
+    children: React.ReactNode;
+    title?: string;
+    href?: string;
+    className?: string;
+    containerClassName?: string;
+    height?: string;
+  }) {
   const [transform, setTransform] = useState(
     "translate(-50%,-50%) rotateX(0deg)"
   );
@@ -62,7 +63,7 @@ export const PinContainer = ({
   );
 };
 
-export const PinPerspective = ({
+const PinPerspective = ({
   href,
 }: {
   title?: string;
