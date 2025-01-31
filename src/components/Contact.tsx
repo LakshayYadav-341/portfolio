@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import { WavyBackground } from "./ui/wavy-background";
 import React from "react";
 
 
@@ -13,35 +12,14 @@ export default function Contact() {
   return (
     <>
       <div id="contact" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-300">
-        <BackgroundGradient />
-        <WavyBackground className="transition-colors duration-300">
+
           <ContactContainer>
             <ContactForm onSubmit={handleSubmit} />
           </ContactContainer>
-        </WavyBackground>
       </div>
     </>
   );
 }
-
-const BackgroundGradient = () => (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    transition={{ duration: 1 }}
-    className="absolute inset-0 overflow-hidden pointer-events-none"
-  >
-    <div className="absolute inset-0">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full aspect-square">
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r 
-          from-blue-300 via-purple-300 to-pink-300 
-          dark:from-blue-500 dark:via-purple-500 dark:to-pink-500 
-          blur-3xl opacity-20 dark:opacity-30 animate-pulse
-          transition-colors duration-300" />
-      </div>
-    </div>
-  </motion.div>
-);
 
 const ContactContainer: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <motion.div

@@ -2,38 +2,15 @@ import React from "react";
 import { BackgroundLines } from "@/components/ui/heroBackgroundLines";
 import Image from "next/image";
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
-import { TypewriterEffectSmooth } from "./ui/heroHeading";
-import { TextGenerateEffect } from "./ui/heroDesc";
 import { FileDownload } from "./ui/file-download";
 
 export default function Hero() {
-    const RoleP1 = [
-        { text: "FULL", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
-        { text: "STACK", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
-    ];
-
-    const RoleP2 = [
-        { text: "WEB", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
-        { text: "DEVELOPER.", className: "text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight" },
-    ];
-
-    const NameP1 = [
-        { text: "LAKSHAY", className: "text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight" },
-    ];
-
-    const NameP2 = [
-        { text: "YADAV", className: "text-2xl sm:text-5xl md:text-7xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight" },
-    ];
-
-    const description = "I'm a full-stack web developer currently in my B.Tech final year and looking for opportunities.";
-    const descClassName = "text-sm sm:text-lg md:text-xl text-neutral-600 dark:text-neutral-200 max-w-2xl";
-
     const socialLinks = [
         { href: "https://www.linkedin.com/in/mlakshayyadav/", icon: <FaLinkedin /> },
         { href: "https://github.com/LakshayYadav-341", icon: <FaGithub /> },
         { href: "https://www.instagram.com/_lakshay__yadav_/", icon: <FaInstagram /> },
     ];
-    const fileId = "1zulasSuhhTqCAacgnS0SMXnKEPOfHbIz"
+    const fileId = "1Plm6AsMyOAdjxz45f9Q-9vRoiXCn79ES"
     const CVURL = `https://drive.google.com/uc?export=download&id=${fileId}`
 
     return (
@@ -41,24 +18,21 @@ export default function Hero() {
             {/* Left Section */}
             <div className="w-full md:w-1/2 text-center md:text-left px-4 lg:ps-36 md:ps-12">
                 <h2 className="md:flex-col md:justify-start md:gap-0 sm:flex-nowrap flex justify-center flex-wrap gap-2">
-                    <div className="">
-                        <TypewriterEffectSmooth words={RoleP1} />
-                    </div>
-                    <div className="">
-                        <TypewriterEffectSmooth words={RoleP2} />
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight">
+                        FULL STACK WEB DEVELOPER
                     </div>
                 </h2>
 
                 <h1 className="md:flex-col md:justify-start md:gap-0 sm:flex-nowrap flex justify-center flex-wrap gap-2 mt-12">
-                    <div className="whitespace-nowrap">
-                        <TypewriterEffectSmooth words={NameP1} />
+                    <div className="whitespace-nowrap text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight">
+                        Lakshay
                     </div>
-                    <div className="whitespace-nowrap">
-                        <TypewriterEffectSmooth words={NameP2} />
+                    <div className="whitespace-nowrap text-2xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white leading-none tracking-tight">
+                        Yadav
                     </div>
                 </h1>
                 <div className="flex justify-center">
-                    <TextGenerateEffect words={description} className={descClassName} />
+                    <div className="text-sm sm:text-lg md:text-xl text-neutral-600 dark:text-neutral-200 max-w-2xl">I&apos;m a full-stack web developer currently in my B.Tech final year and looking for opportunities.</div>
                 </div>
             </div>
 

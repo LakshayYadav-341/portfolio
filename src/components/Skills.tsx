@@ -1,6 +1,5 @@
 import React from "react";
 import { SkillsDock } from "@/components/ui/skillDock";
-import { TypewriterEffectSmooth } from "./ui/heroHeading";
 import Image from "next/image";
 
 
@@ -230,19 +229,12 @@ export default function Skills() {
   ];
 
 
-  const title = [
-    "MY",
-    "TECHNICAL",
-    "SKILLS",
-  ];
-
   return (
     <div className="flex flex-col items-center justify-center min-h-[35rem] w-full p-4">
       <h2 className="text-6xl font-bold mb-8 text-center dark:text-white">
-        <TypewriterEffectSmooth words={title.map((text) => ({
-          text,
-          className: "text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight",
-        }))} />
+        <div className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-neutral-600 dark:text-neutral-400 leading-tight tracking-tight">
+          MY TECHNICAL SKILLS
+        </div>
       </h2>
 
       <div className="w-full max-w-4xl">

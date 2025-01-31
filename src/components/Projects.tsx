@@ -8,7 +8,6 @@ import { FaGithub } from "react-icons/fa";
 
 // Lazy load components
 const PinContainer = dynamic(() => import("./ui/projectPin"));
-const LampContainer = dynamic(() => import("./ui/lamp"), { ssr: false });
 
 const projects = [
   {
@@ -89,54 +88,43 @@ export default function Projects() {
   };
 
   return (
-    <section className="w-full py-20 bg-gradient-to-b from-background to-background/80 dark:from-gray-900 dark:to-gray-900/80">
+    <section className="w-full mt-10 py-20 bg-gradient-to-b from-background to-background/80 dark:from-gray-900 dark:to-gray-900/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <LampContainer>
-          <motion.h1
-            initial={{ opacity: 0.5, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="text-center text-4xl md:text-7xl font-bold tracking-tight bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-transparent"
-          >
-            My Projects
-          </motion.h1>
-          <p className="mt-4 text-lg tracking-wide text-center text-gray-600 dark:text-gray-200">
-            A collection of my recent work and personal projects.
-          </p>
+        <h1
+          className="text-center text-4xl md:text-7xl font-bold tracking-tight bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-transparent"
+        >
+          My Projects
+        </h1>
+        <p className="mt-4 text-lg tracking-wide text-center text-gray-600 dark:text-gray-200">
+          A collection of my recent work and personal projects.
+        </p>
 
-          {/* Filter Tags */}
-          <div className="flex flex-wrap gap-2 justify-center my-8">
+        {/* Filter Tags */}
+        <div className="flex flex-wrap gap-2 justify-center my-8">
+          <button
+            onClick={() => setSelectedTag("")}
+            aria-label="Show all projects"
+            className={`px-4 py-2 rounded-full text-sm transition-colors ${!selectedTag
+                ? "bg-primary text-white"
+                : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+              }`}
+          >
+            All
+          </button>
+          {allTags.map((tag) => (
             <button
-              onClick={() => setSelectedTag("")}
-              aria-label="Show all projects"
-              className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                !selectedTag
+              key={tag}
+              onClick={() => setSelectedTag(tag)}
+              aria-label={`Show projects with ${tag}`}
+              className={`px-4 py-2 rounded-full text-sm transition-colors ${selectedTag === tag
                   ? "bg-primary text-white"
                   : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
-              }`}
-            >
-              All
-            </button>
-            {allTags.map((tag) => (
-              <button
-                key={tag}
-                onClick={() => setSelectedTag(tag)}
-                aria-label={`Show projects with ${tag}`}
-                className={`px-4 py-2 rounded-full text-sm transition-colors ${
-                  selectedTag === tag
-                    ? "bg-primary text-white"
-                    : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
                 }`}
-              >
-                {tag}
-              </button>
-            ))}
-          </div>
-        </LampContainer>
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
 
         <motion.div
           className="flex items-center justify-center gap-2 mt-5"

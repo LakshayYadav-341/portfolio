@@ -8,9 +8,7 @@ const Skills = dynamic(() => import('@/components/Skills'));
 const WorkExperience = dynamic(() => import('@/components/WorkExperience'));
 const Projects = dynamic(() => import('@/components/Projects'));
 const Certifications = dynamic(() => import('@/components/Certification'));
-const Contact = dynamic(() => import('@/components/Contact'), {
-  loading: () => <p>Loading...</p>, // Fallback for the Contact component
-});
+const Contact = dynamic(() => import('@/components/Contact'));
 
 export default function Home() {
   return (
