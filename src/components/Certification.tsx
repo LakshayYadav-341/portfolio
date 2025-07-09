@@ -30,7 +30,7 @@ export function Certifications() {
     useOutsideClick(ref, () => setActive(null));
 
     return (
-        <section className="py-12 px-4 bg-gradient-to-b from-white to-neutral-50 dark:from-neutral-950 dark:to-neutral-900">
+        <section className="py-12 px-4">
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-4xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-white dark:to-neutral-400">
                     Professional Certifications
