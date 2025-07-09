@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect, useCallback, useMemo } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
 interface ContainerScrollProps {
@@ -7,54 +7,55 @@ interface ContainerScrollProps {
   children: React.ReactNode;
 }
 
-export const ContainerScroll: React.FC<ContainerScrollProps> = React.memo(
-  ({ titleComponent, children }) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({ target: containerRef });
-    const [isMobile, setIsMobile] = useState(false);
+const ContainerScrollComponent: React.FC<ContainerScrollProps> = ({
+  titleComponent,
+  children,
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef });
+  const [isMobile, setIsMobile] = useState(false);
 
-    // Only set isMobile on mount and resize
-    useEffect(() => {
-      const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-      checkMobile();
-      window.addEventListener("resize", checkMobile);
-      return () => window.removeEventListener("resize", checkMobile);
-    }, []);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
-    // Memoize scale dimensions for performance
-    const scaleDimensions = useMemo(() => {
-      return isMobile ? [0.7, 0.9] : [1.05, 1];
-    }, [isMobile]);
+  const scaleDimensions = useMemo(() => {
+    return isMobile ? [0.7, 0.9] : [1.05, 1];
+  }, [isMobile]);
 
-    const rotate = useTransform(scrollYProgress, [0, 1], [10, 0]);
-    const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions);
-    const translate = useTransform(scrollYProgress, [-2, 0.5], [0, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [10, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions);
+  const translate = useTransform(scrollYProgress, [-2, 0.5], [0, 0]);
 
-    return (
-      <div
-        className="relative w-full h-auto flex items-center justify-center md:px-4 overflow-hidden"
-        ref={containerRef}
-      >
-        <div
-          className="w-full relative md:p-8"
-          style={{ perspective: "1000px" }}
-        >
-          <Header translate={translate} titleComponent={titleComponent} />
-          <Card rotate={rotate} scale={scale} translate={translate}>
-            {children}
-          </Card>
-        </div>
+  return (
+    <div
+      className="relative w-full h-auto flex items-center justify-center md:px-4 overflow-hidden"
+      ref={containerRef}
+    >
+      <div className="w-full relative md:p-8" style={{ perspective: "1000px" }}>
+        <Header translate={translate} titleComponent={titleComponent} />
+        <Card rotate={rotate} scale={scale} translate={translate}>
+          {children}
+        </Card>
       </div>
-    );
-  }
-);
+    </div>
+  );
+};
+
+ContainerScrollComponent.displayName = "ContainerScroll";
+export const ContainerScroll = React.memo(ContainerScrollComponent);
+
+// ---------------------- Header ----------------------
 
 interface HeaderProps {
   translate: MotionValue<number>;
   titleComponent: string | React.ReactNode;
 }
 
-export const Header: React.FC<HeaderProps> = React.memo(({ translate, titleComponent }) => {
+const HeaderComponent: React.FC<HeaderProps> = ({ translate, titleComponent }) => {
   return (
     <motion.div
       style={{ translateY: translate }}
@@ -63,7 +64,12 @@ export const Header: React.FC<HeaderProps> = React.memo(({ translate, titleCompo
       {titleComponent}
     </motion.div>
   );
-});
+};
+
+HeaderComponent.displayName = "Header";
+export const Header = React.memo(HeaderComponent);
+
+// ---------------------- Card ----------------------
 
 interface CardProps {
   rotate: MotionValue<number>;
@@ -72,7 +78,7 @@ interface CardProps {
   children: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = React.memo(({ rotate, scale, translate, children }) => {
+const CardComponent: React.FC<CardProps> = ({ rotate, scale, translate, children }) => {
   return (
     <motion.div
       style={{ rotateX: rotate, scale, translateY: translate }}
@@ -83,4 +89,7 @@ export const Card: React.FC<CardProps> = React.memo(({ rotate, scale, translate,
       </div>
     </motion.div>
   );
-});
+};
+
+CardComponent.displayName = "Card";
+export const Card = React.memo(CardComponent);

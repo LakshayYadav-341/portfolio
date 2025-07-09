@@ -30,7 +30,7 @@ const AnimatedBackground: React.FC = () => {
     canvas.height = height;
 
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    let blobs = Array.from({ length: 4 }).map((_, i) => ({
+    const blobs = Array.from({ length: 4 }).map((_, i) => ({
       x: Math.random() * width,
       y: Math.random() * height,
       r: 120 + Math.random() * 100,
@@ -40,7 +40,7 @@ const AnimatedBackground: React.FC = () => {
       phase: Math.random() * Math.PI * 2,
     }));
 
-    let particles = Array.from({ length: 8 }).map((_, i) => ({
+    const particles = Array.from({ length: 8 }).map(() => ({
       x: Math.random() * width,
       y: Math.random() * height,
       size: 3 + Math.random() * 5,
@@ -58,7 +58,7 @@ const AnimatedBackground: React.FC = () => {
       ctx.clearRect(0, 0, width, height);
 
       // Animate blobs
-      blobs.forEach((blob, i) => {
+      blobs.forEach((blob, ) => {
         blob.x += blob.dx + Math.sin(performance.now() / 2000 + blob.phase) * 0.2;
         blob.y += blob.dy + Math.cos(performance.now() / 2000 + blob.phase) * 0.2;
         blob.phase += 0.002;

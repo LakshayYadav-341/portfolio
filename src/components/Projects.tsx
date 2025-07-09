@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useMemo, useRef, useEffect } from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -13,9 +12,6 @@ type Project = {
   image: string;
   tags: string[];
 };
-
-// Lazy load unused component (if needed in future)
-const PinContainer = dynamic(() => import("./ui/projectPin"), { ssr: false });
 
 const projects: Project[] = [
   {

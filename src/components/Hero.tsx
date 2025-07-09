@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
 import { BackgroundLines } from "@/components/ui/heroBackgroundLines";
-import Image from "next/image";
 import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
-import { FileDownload } from "./ui/file-download";
 import { IconDownload } from "@tabler/icons-react";
 
 export default function Hero() {
