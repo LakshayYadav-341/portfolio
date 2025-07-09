@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { Rubik } from "next/font/google";
+import ThemeToggleSticky from "../components/ThemeToggleSticky";
+import AnimatedBackground from "../components/ui/animated-background";
 
 const rubik =  Rubik({
   subsets: ['latin'],
@@ -23,8 +25,11 @@ export default function RootLayout({
       <body
         className={`${rubik.className} antialiased`}
       >
+        <AnimatedBackground />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
+          {/* Theme Toggle Button - sticky at bottom center */}
+          <ThemeToggleSticky />
         </ThemeProvider>
       </body>
     </html>

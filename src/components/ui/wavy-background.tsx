@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo, useCallback } from "react";
 import { createNoise3D } from "simplex-noise";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 
-export const WavyBackground = ({
+export const WavyBackground = React.memo(function WavyBackground({
   children,
   className,
   containerClassName,
@@ -27,14 +27,14 @@ export const WavyBackground = ({
   speed?: "slow" | "fast";
   waveOpacity?: number;
   [key: string]: any;
-}) => {
-  const noise = createNoise3D();
+}) {
+  const noise = useMemo(() => createNoise3D(), []);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { theme } = useTheme();
 
-  const getSpeed = () => (speed === "fast" ? 0.002 : 0.001);
+  const getSpeed = useCallback(() => (speed === "fast" ? 0.002 : 0.001), [speed]);
 
-  const init = () => {
+  const init = useCallback(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!ctx) return;
@@ -73,17 +73,20 @@ export const WavyBackground = ({
 
     render();
 
-    window.onresize = () => {
+    const handleResize = () => {
       w = ctx.canvas.width = window.innerWidth;
       h = ctx.canvas.height = window.innerHeight;
       ctx.filter = `blur(${blur}px)`;
     };
-  };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [noise, blur, colors, theme, waveWidth, backgroundFill, waveOpacity, getSpeed]);
 
   useEffect(() => {
-    init();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme]);
+    const cleanup = init();
+    return cleanup;
+  }, [init]);
 
   return (
     <div className={cn("h-screen flex flex-col items-center justify-center", containerClassName)}>
@@ -97,4 +100,4 @@ export const WavyBackground = ({
       </div>
     </div>
   );
-};
+});

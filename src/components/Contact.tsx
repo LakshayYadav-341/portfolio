@@ -11,7 +11,7 @@ export default function Contact() {
 
   return (
     <>
-      <div id="contact" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-300">
+      <div id="contact" className="relative w-full min-h-screen flex items-center justify-center overflow-hidden transition-colors duration-300">
 
           <ContactContainer>
             <ContactForm onSubmit={handleSubmit} />
