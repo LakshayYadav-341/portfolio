@@ -31,14 +31,14 @@ export default function WorkExperience() {
           </p>
           <ul className="list-disc list-inside space-y-2 pl-3">
             {[
-              "Developed and maintained various client projects, improving performance and API reliability.",
-              "Utilized Angular and Node.js to implement new features, ensuring efficient, scalable codebases.",
-              "Participated in code reviews and debugging sessions, improving team collaboration and reducing production bugs.",
-              "Integrated multiple databases like MySQL, MongoDB, and PostgreSQL, enhancing data pipelines.",
+              "Built 4+ REST APIs including a live order migration API for microservice V1 to V2 transition.",
+              "Resolved Razorpay webhook race condition affecting payment status consistency.",
+              "Improved unit test coverage by 10% and fixed flaky Bitbucket CI pipeline failures.",
+              "Fixed critical Store page pagination bug and 5+ production issues in booking flows."
             ]
               .filter((_, idx) => isMediumScreen || idx !== 2)
               .map((point, idx) => (
-                <li key={idx} className="text-gray-800 dark:text-gray-200 text-base leading-relaxed transition-colors duration-200 ">
+                <li key={idx} className="text-gray-800 dark:text-gray-200 text-base leading-relaxed transition-colors duration-200">
                   {point}
                 </li>
               ))}
